@@ -177,4 +177,4 @@ world_map +
   
 ```
 
-This chart shows a map of the world where each green dot is placed on the capital of the country. The size of the dot represents how many Spotify listeners each country has, which is scaled through the size of the dot.
+This chart shows a map of the world where each green dot represents an artist, and is placed on the capital of the artists home country. The size of the dot represents how many Spotify listeners that artist has.
