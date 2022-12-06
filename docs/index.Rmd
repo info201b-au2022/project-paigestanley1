@@ -17,7 +17,7 @@ After creating these three charts, we can see the beginnings of answers to our r
 
 ## Table
 
-```{r echo = FALSE, results = 'asis',  warning=FALSE}
+```{r echo = FALSE, results = 'asis',  warning=FALSE, message = FALSE}
 library("dplyr")
 library("ggplot2")
 library("plotly")
@@ -68,7 +68,7 @@ This table shows aggregate data from all three of our charts. The table is group
 
 ## Chart 1
 
-```{r echo = FALSE, results = 'asis',  warning=FALSE}
+```{r echo = FALSE, results = 'asis',  warning=FALSE, message = FALSE}
 library("ggplot2")
 library("dplyr")
 
@@ -92,7 +92,7 @@ This chart shows the most popular genres on spotify. The top is pop while the bo
 
 ## Chart 2
 
-```{r echo = FALSE, results = 'asis',  warning=FALSE}
+```{r echo = FALSE, results = 'asis',  warning=FALSE, message=FALSE}
 library("tidyverse")
 library("stringr")
 library("ggplot2")
