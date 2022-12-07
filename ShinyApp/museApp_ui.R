@@ -27,15 +27,16 @@ uiP4 <- tabPanel("Chart 3",
                  )
 )
 
+uiP5 <- tabPanel("Summary Takeaways")
 
-#uiP5
-
-#uiP6 
+uiP6 <- tabPanel("Report")
 
 muse_ui <- navbarPage("Project Muse",
   uiP1,
   uiP2,
   uiP3,
   uiP4,
+  uiP5,
+  uiP6,
 )
 
