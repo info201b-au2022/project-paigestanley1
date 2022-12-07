@@ -2,19 +2,18 @@ library("dplyr")
 library("ggplot2")
 library("plotly")
 
-spotify_dataset <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-Chkjaer/main/data/spotify_dataset.csv")
-artists <- here("~/Documents/info201/assignments/project-Chkjaer/data/artists.csv")
-# This file will not open from our repository so I wrote the absolute path to it on my computer.
+spotify_dataset <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/spotify_dataset.csv")
+artists <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/top_artists.csv")
 songs_normalize <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-Chkjaer/main/data/songs_normalize.csv")
 
 artists_table <- artists %>%
   group_by(artist_mb) %>%
-  select(artist_mb, country_mb, tags_mb, listeners_lastfm)
+  select(artist_mb, country, tags_mb, listeners_lastfm)
 
 artists_table <- artists_table %>%
   rename(artist = artist_mb) %>%
   rename(genre = tags_mb) %>%
-  rename(country_of_origin = country_mb) %>%
+  rename(country_of_origin = country) %>%
   rename(listeners = listeners_lastfm)
 
 table <- left_join(artists_table, songs_normalize, by = "artist")
@@ -51,3 +50,20 @@ table_final <- table_final[!duplicated(table_final$artist), ]
 # are pop and rock. This table also answers are question that while Spotify is used worldwide,
 # the majority of its popular music is from the US and UK. We wonder if this is because of Spotify's
 # reccomendation algorithm or if English music is truly the most widely enjoyed. 
+
+artist_country_freq <- names(which.max(table(artists$country)))
+  # United states
+
+song_year_freq <- names(which.max(table(songs_normalize$year)))
+  # 2012
+
+genre_freq <- names(which.max(table(songs_normalize$genre)))
+  # pop
+
+artist_freq <- names(which.max(table(spotify_dataset$Artist)))
+  # Taylor Swift
+
+max_followers <- names(which.max(table(spotify_dataset$Artist.Followers)))
+  # 42227614 Taylor Swift
+
+  
