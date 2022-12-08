@@ -2,7 +2,7 @@ library(shiny)
 
 uiP1 <- tabPanel("Introduction",
   titlePanel("Music Behavior Around the World"),
-  mainPanel(img(src="spotify_image.jpeg", align = "left")),
+  mainPanel(img(src="spotify_image.jpeg", align = "right")),
   mainPanel(
     p("Music is a universally enjoyed art that succeeds at bringing people together,
     creating shared experiences, and representing culture. Being that Spotify is 
@@ -79,24 +79,27 @@ uiP3 <- tabPanel("Chart 3",
 
 
 
-uiP4 <- tabPanel("Report",
+uiP5 <- tabPanel("Report",
     titlePanel("Report"),
     mainPanel("Findings:"),
     mainPanel("Answers to research questions:"),
-    mainPanel("1. What are the most popular genres on Spotify?"),
-    mainPanel("The most popular genres on Spotify are Pop, Rap, KPop, and Hip Hop."),
-    mainPanel("2. How have the most popular genre's changed over time?"),
+    mainPanel("1. How have the most popular genre's changed over time?"),
     mainPanel(""),
     mainPanel("3. What are the majority of top artists' country-of-origin in countries 
               worldwide?"),
     mainPanel(""),
     mainPanel("2. How have the most popular genre's changed over time"),
+    mainPanel("2. What are the majority of top artists' country-of-origin?"),
+    mainPanel("The majority of top artists' country-of-origin are the United States 
+              and the United Kingdom. The top 14 Spotify artists are from the US and UK."),
 )
 
-uiP5 <- tabPanel("Summary Takeaways",
+uiP4 <- tabPanel("Summary Takeaways",
   titlePanel("Some things to take away"),
   mainPanel("Thorugh geographical exploration, the U.K. and the U.S. are clearly the home of the most popular artists on spotify. The top 14 artists on spotify, including big nmes like Radiohead, Coldplay, Nirvana, all call either the U.S. or U.K. home"),
 )               
+
+    
 
 muse_ui <- navbarPage("Project Muse",
   uiP1,
