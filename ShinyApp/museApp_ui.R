@@ -4,7 +4,16 @@ uiP1 <- tabPanel("Introduction")
 
 uiP2 <- tabPanel("Chart 1")
 
-uiP3 <- tabPanel("Chart 2")
+uiP3 <- tabPanel("Chart 2", 
+                 sidebarLayout(
+                   sidebarPanel(
+                     selectInput("genre_selction", label="genre", choice = all_genres)),
+                   mainPanel(
+                     plotOutput("chart2")
+                   )
+                  )
+                 )
+
 
 uiP4 <- tabPanel("Chart 3",
                  sidebarLayout(

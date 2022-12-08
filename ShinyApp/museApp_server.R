@@ -1,26 +1,54 @@
 library("shiny")
+library("stringr")
 library("dplyr")
 library("ggplot2")
 library("plotly")
+
+#Chart 2
+top_spotify_hits2000_2019 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/songs_normalize.csv")
+
+all_genres <- as.list(unique(unlist(strsplit(as.character(top_spotify_hits2000_2019$genre), ", "))))
+
 
 #Chart 3
 artists <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/top_artists.csv", stringsAsFactors = FALSE)
 capitals <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/concap.csv")
 
-top_artists <- artists %>% 
-  arrange(-listeners_lastfm) %>%
-  rename(country = country)
+#top_artists <- artists %>% 
+#  arrange(-listeners_lastfm) %>%
+#  rename(country = country)
   
 capitals <- rename(capitals, country = CountryName)
 
-top_artists <- top_artists %>%
+top_artists <- artists %>%
   left_join(capitals, by = "country")
 
 country_shape <- map_data("world")
 
 #Server
 muse_server <- function(input, output) {
+
+#Chart 2
   
+  output$chart2 <- renderPlot({
+    wrangle_genre_data <- function(inputGenre) {
+      new_data <- top_spotify_hits2000_2019 %>%
+        filter(str_detect(genre, inputGenre)) %>%
+        group_by(year) %>%
+        summarise(total_popularity_of_genre = sum(popularity, na.rm = TRUE)) %>%
+        return(new_data)
+    }
+    create_plot_for_genre <- function(inputGenre) {
+      data <- wrangle_genre_data(inputGenre)
+      ggplot(new_data, aes(x = year, y = total_popularity_of_genre)) + 
+        geom_point(size = 2) +
+        labs(title = "Popularity of Genre from 2000 - 2019",
+             x = "Year",
+             y = "Total Popularity of Genre")
+    }
+    create_plot_for_genre(input$genre_selection)
+  })
+
 #Chart 3
   
   output$chart3 <- renderPlot({
