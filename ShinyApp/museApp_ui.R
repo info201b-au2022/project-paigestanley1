@@ -71,9 +71,13 @@ uiP6 <- tabPanel("Report",
     titlePanel("Report"),
     mainPanel("Findings:",)
     mainPanel("Answers to research questions:"),
-    mainPanel("1. What are the most popular genres on Spotify"),
+    mainPanel("1. What are the most popular genres on Spotify?"),
     mainPanel("The most popular genres on Spotify are Pop, Rap, KPop, and Hip Hop."),
-    mainPanel("2. How have the most popular genre's changed over time")
+    mainPanel("2. How have the most popular genre's changed over time?"),
+    mainPanel("")
+    mainPanel("3. What are the majority of top artists' country-of-origin in countries 
+              worldwide?")
+    mainPanel("")
 
 muse_ui <- navbarPage("Project Muse",
   uiP1,
