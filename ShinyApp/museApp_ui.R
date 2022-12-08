@@ -2,7 +2,7 @@ library(shiny)
 
 uiP1 <- tabPanel("Introduction",
   titlePanel("Music Behavior Around the World"),
-  mainPanel(img(src="spotify_image.jpeg", align = "left")),
+  mainPanel(img(HTML(img src="spotify_image.jpeg"/'),
   mainPanel(
     p("Music is a universally enjoyed art that succeeds at bringing people together,
     creating shared experiences, and representing culture. Being that Spotify is 
@@ -83,17 +83,11 @@ uiP4 <- tabPanel("Report",
     titlePanel("Report"),
     mainPanel("Findings:"),
     mainPanel("Answers to research questions:"),
-    mainPanel("1. What are the most popular genres on Spotify?"),
-    mainPanel("The most popular genres on Spotify are Pop, Rap, KPop, and Hip Hop."),
-    mainPanel("2. How have the most popular genre's changed over time?"),
+    mainPanel("1. How have the most popular genre's changed over time?"),
     mainPanel(""),
-    mainPanel("3. What are the majority of top artists' country-of-origin in countries 
-              worldwide?"),
-    mainPanel(""),
-    mainPanel("2. How have the most popular genre's changed over time"),
-)
-
-
+    mainPanel("2. What are the majority of top artists' country-of-origin?"),
+    mainPanel("The majority of top artists' country-of-origin are the United States 
+              and the United Kingdom. The top 14 Spotify artists are from the US and UK."),
 
 muse_ui <- navbarPage("Project Muse",
   uiP1,
