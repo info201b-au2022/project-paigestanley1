@@ -64,7 +64,7 @@ muse_server <- function(input, output) {
     create_plot_for_genre <- function(inputGenre) {
       data <- wrangle_genre_data(inputGenre)
       ggplot(data, aes(x = year, y = total_popularity_of_genre)) + 
-        geom_point(size = 2) +
+        geom_line() +
         labs(title = "Popularity of Genre from 2000 - 2019",
              x = "Year",
              y = "Total Popularity of Genre")
