@@ -43,9 +43,8 @@ uiP1 <- tabPanel("Introduction",
     p("Enjoy our interactive visualizations!")
   ),
 )
-uiP2 <- tabPanel("Chart 1")
 
-uiP3 <- tabPanel("Chart 2", 
+uiP2 <- tabPanel("Chart 2", 
                  sidebarLayout(
                    sidebarPanel(
                      selectInput("genre_selction", label="genre", choice = all_genres)),
@@ -56,7 +55,7 @@ uiP3 <- tabPanel("Chart 2",
                  )
 
 
-uiP4 <- tabPanel("Chart 3",
+uiP3 <- tabPanel("Chart 3",
                  sidebarLayout(
                    sidebarPanel(
                      #checkboxGroupInput("ratingType", label = h3("Show:"), 
@@ -80,7 +79,7 @@ uiP4 <- tabPanel("Chart 3",
 
 
 
-uiP6 <- tabPanel("Report",
+uiP4 <- tabPanel("Report",
     titlePanel("Report"),
     mainPanel("Findings:"),
     mainPanel("Answers to research questions:"),
@@ -89,16 +88,11 @@ uiP6 <- tabPanel("Report",
     mainPanel("2. How have the most popular genre's changed over time?"),
     mainPanel(""),
     mainPanel("3. What are the majority of top artists' country-of-origin in countries 
-<<<<<<< HEAD
               worldwide?"),
     mainPanel(""),
     mainPanel("2. How have the most popular genre's changed over time"),
-=======
-              worldwide?")
-    mainPanel("")
-    mainPanel("2. How have the most popular genre's changed over time")
->>>>>>> 9cfabd7c0093404d6098783cacac101e9803ebfd
 )
+
 
 
 muse_ui <- navbarPage("Project Muse",
@@ -106,5 +100,6 @@ muse_ui <- navbarPage("Project Muse",
   uiP2,
   uiP3,
   uiP4,
+  uiP5,
 )
 

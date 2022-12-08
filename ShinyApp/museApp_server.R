@@ -4,10 +4,7 @@ library("dplyr")
 library("ggplot2")
 library("plotly")
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 9cfabd7c0093404d6098783cacac101e9803ebfd
 # Intro
 spotify_dataset <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/spotify_dataset.csv")
 artists <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/top_artists.csv")
