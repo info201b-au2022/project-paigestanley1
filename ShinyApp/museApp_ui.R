@@ -86,16 +86,14 @@ uiP6 <- tabPanel("Report",
     mainPanel("Answers to research questions:"),
     mainPanel("1. What are the most popular genres on Spotify?"),
     mainPanel("The most popular genres on Spotify are Pop, Rap, KPop, and Hip Hop."),
-<<<<<<< HEAD
     mainPanel("2. How have the most popular genre's changed over time?"),
-    mainPanel("")
+    mainPanel(""),
     mainPanel("3. What are the majority of top artists' country-of-origin in countries 
-              worldwide?")
-    mainPanel("")
-=======
-    mainPanel("2. How have the most popular genre's changed over time")
+              worldwide?"),
+    mainPanel(""),
+    mainPanel("2. How have the most popular genre's changed over time"),
 )
->>>>>>> c5a7d7364d2eddde39af0803addd36cd13accf06
+
 
 muse_ui <- navbarPage("Project Muse",
   uiP1,
