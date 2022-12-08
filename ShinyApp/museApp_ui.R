@@ -27,7 +27,15 @@ uiP4 <- tabPanel("Chart 3",
                  )
 )
 
-uiP5 <- tabPanel("Summary Takeaways")
+uiP5 <- tabPanel("Summary Takeaways", 
+                 titlePanel("Things to Take Away"),
+                 mainPanel(
+                   p("Through geographical exploration, the U.K. and the U.S. are clearly the home of the most popular artists on spotify. The top 14 artists on spotify, including big names like Radiohead, Coldplay, and Nirvana, all call either the U.S. or U.K home. "),
+                   p("Through historical exploration of genres from 2000-2019, . Folk saw a rise and fall over the "),
+                   p()
+                 )
+                            
+                 )
 
 uiP6 <- tabPanel("Report")
 
