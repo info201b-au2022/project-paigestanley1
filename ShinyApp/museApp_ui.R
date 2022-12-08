@@ -85,6 +85,7 @@ uiP5 <- tabPanel("Report",
     mainPanel("Answers to research questions:"),
     mainPanel("1. How have the most popular genre's changed over time?"),
     mainPanel(""),
+<<<<<<< HEAD
     mainPanel("3. What are the majority of top artists' country-of-origin in countries 
               worldwide?"),
     mainPanel(""),
@@ -100,6 +101,11 @@ uiP4 <- tabPanel("Summary Takeaways",
 )               
 
     
+=======
+    mainPanel("2. What are the majority of top artists' country-of-origin?"),
+    mainPanel("The majority of top artists' country-of-origin are the United States 
+              and the United Kingdom. The top 14 Spotify artists are from the US and UK."),
+>>>>>>> 2226baf99f93774b49051c050ecd264f0da2fbb2
 
 muse_ui <- navbarPage("Project Muse",
   uiP1,
