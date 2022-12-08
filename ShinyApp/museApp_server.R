@@ -40,7 +40,7 @@ muse_server <- function(input, output) {
       ) +
       coord_map() +
       labs(
-        title = paste0("Top ", input$topNum, " Spotify Artists' Home Countries by Capital with Amount of Listeners and/or Scrobbles"),
+        title = paste0("Top ", input$topNum, " Spotify Artists' and their Home Countries' Capitals by Amount of Listeners"),
         x = NULL,
         y = NULL,
       )
