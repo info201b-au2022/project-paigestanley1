@@ -44,7 +44,6 @@ muse_server <- function(input, output) {
         x = NULL,
         y = NULL,
       )
-    #if('1' %in% input$ratingType){
       world_map <- world_map + 
         geom_point(
           data = top_artists,
@@ -55,19 +54,6 @@ muse_server <- function(input, output) {
         labs(
           size = "Listeners"
         ) 
-    #}
-    #if('2' %in% input$ratingType){
-    #world_map <- world_map +
-    #  geom_point(
-    #    data = top_artists,
-    #    mapping = aes(x = CapitalLongitude, y = CapitalLatitude, size = scrobbles_lastfm),
-    #    color = "purple",
-    #    alpha = .3
-    #  ) + 
-    #  labs(
-    #    size = "Scrobbles"
-    #  )
-    #}
     world_map
   }) 
   output$artistsTable <- renderTable({
