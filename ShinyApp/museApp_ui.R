@@ -47,7 +47,7 @@ uiP1 <- tabPanel("Introduction",
 uiP2 <- tabPanel("Chart 2", 
                  sidebarLayout(
                    sidebarPanel(
-                     selectInput("genre_selction", label="genre", choice = all_genres)),
+                     selectInput("genre_selection", label="genre", choice = all_genres)),
                    mainPanel(
                      plotOutput("chart2")
                    )
@@ -93,7 +93,10 @@ uiP4 <- tabPanel("Report",
     mainPanel("2. How have the most popular genre's changed over time"),
 )
 
-
+uiP5 <- tabPanel("Summary Takeaways",
+  titlePanel("Some things to take away"),
+  mainPanel("Thorugh geographical exploration, the U.K. and the U.S. are clearly the home of the most popular artists on spotify. The top 14 artists on spotify, including big nmes like Radiohead, Coldplay, Nirvana, all call either the U.S. or U.K. home"),
+)               
 
 muse_ui <- navbarPage("Project Muse",
   uiP1,

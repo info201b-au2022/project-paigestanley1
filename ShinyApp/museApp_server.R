@@ -30,7 +30,7 @@ max_followers <- names(which.max(table(spotify_dataset$Artist.Followers)))
 
 #Chart 2
 top_spotify_hits2000_2019 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/songs_normalize.csv")
-
+top_spotify_hits2000_2019 <- top_spotify_hits2000_2019 %>% filter(genre != "set()")
 all_genres <- as.list(unique(unlist(strsplit(as.character(top_spotify_hits2000_2019$genre), ", "))))
 
 
@@ -56,15 +56,14 @@ muse_server <- function(input, output) {
   
   output$chart2 <- renderPlot({
     wrangle_genre_data <- function(inputGenre) {
-      new_data <- top_spotify_hits2000_2019 %>%
+      data <- top_spotify_hits2000_2019 %>%
         filter(str_detect(genre, inputGenre)) %>%
         group_by(year) %>%
-        summarise(total_popularity_of_genre = sum(popularity, na.rm = TRUE)) %>%
-        return(new_data)
+        summarise(total_popularity_of_genre = sum(popularity, na.rm = TRUE))
     }
     create_plot_for_genre <- function(inputGenre) {
       data <- wrangle_genre_data(inputGenre)
-      ggplot(new_data, aes(x = year, y = total_popularity_of_genre)) + 
+      ggplot(data, aes(x = year, y = total_popularity_of_genre)) + 
         geom_point(size = 2) +
         labs(title = "Popularity of Genre from 2000 - 2019",
              x = "Year",
