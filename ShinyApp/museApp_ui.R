@@ -2,7 +2,7 @@ library(shiny)
 
 uiP1 <- tabPanel("Introduction",
   titlePanel("Music Behavior Around the World"),
-  mainPanel(img(HTML(img src="spotify_image.jpeg"/'),
+  mainPanel(img(src="spotify_image.jpeg", align = "right")),
   mainPanel(
     p("Music is a universally enjoyed art that succeeds at bringing people together,
     creating shared experiences, and representing culture. Being that Spotify is 
