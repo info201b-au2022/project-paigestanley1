@@ -4,8 +4,11 @@ library("dplyr")
 library("ggplot2")
 library("plotly")
 
-<<<<<<< HEAD
 # Intro
+spotify_dataset <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/spotify_dataset.csv")
+artists <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/top_artists.csv")
+songs_normalize <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-Chkjaer/main/data/songs_normalize.csv")
+
 num_countries <- length(unique(artists$country))
 #94
 
@@ -23,13 +26,12 @@ artist_freq <- names(which.max(table(spotify_dataset$Artist)))
 
 max_followers <- names(which.max(table(spotify_dataset$Artist.Followers)))
 # 42227614 Taylor Swift
-=======
+
 #Chart 2
 top_spotify_hits2000_2019 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/songs_normalize.csv")
 
 all_genres <- as.list(unique(unlist(strsplit(as.character(top_spotify_hits2000_2019$genre), ", "))))
 
->>>>>>> c5a7d7364d2eddde39af0803addd36cd13accf06
 
 #Chart 3
 artists <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/top_artists.csv", stringsAsFactors = FALSE)
