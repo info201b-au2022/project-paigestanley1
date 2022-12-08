@@ -89,9 +89,15 @@ uiP6 <- tabPanel("Report",
     mainPanel("2. How have the most popular genre's changed over time?"),
     mainPanel(""),
     mainPanel("3. What are the majority of top artists' country-of-origin in countries 
+<<<<<<< HEAD
               worldwide?"),
     mainPanel(""),
     mainPanel("2. How have the most popular genre's changed over time"),
+=======
+              worldwide?")
+    mainPanel("")
+    mainPanel("2. How have the most popular genre's changed over time")
+>>>>>>> 9cfabd7c0093404d6098783cacac101e9803ebfd
 )
 
 
