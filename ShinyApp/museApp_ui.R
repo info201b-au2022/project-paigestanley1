@@ -91,6 +91,9 @@ uiP4 <- tabPanel("Report",
               worldwide?"),
     mainPanel(""),
     mainPanel("2. How have the most popular genre's changed over time"),
+    mainPanel("There were a couple of trends observed for each genre over the past two decades. Some notable
+              ones were that R&B reached its highest popularity in the early 2000s, rock in the late 2000s,
+              and pop in the early to mid 2010s")
 )
 
 
