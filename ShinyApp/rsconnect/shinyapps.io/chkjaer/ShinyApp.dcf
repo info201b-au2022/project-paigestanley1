@@ -1,0 +1,13 @@
+name: ShinyApp
+title: ShinyApp
+username:
+account: chkjaer
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7850599
+bundleId: 6612208
+url: https://chkjaer.shinyapps.io/ShinyApp/
+when: 1670531858.02482
+lastSyncTime: 1670531858.02485
+asMultiple: FALSE
+asStatic: FALSE
