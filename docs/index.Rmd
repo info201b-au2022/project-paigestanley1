@@ -11,13 +11,27 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Dynamic Paragraph
+## Important values
 
-After creating these three charts, we can see the beginnings of answers to our research questions. In Chart 1, the values we see are community and upliftment. There are clear winners of which genres are the most popular so we see that people enjoy to listen to the same music as the people around them. The clear winners are also upbeat genres like pop, rock, and rap. In Chart 2 we see the value of trends and social conformity. None of the genres had a straight line in them which shows that there are trends of which genres are popular each year. That means that people follow others' interests in music. Finally, the third chart shows the value of culture. The world map shows the amount of Spotify listeners in each country. As we can see through the table, most of Spotify's top artists are from the US, so through the chart we can see where American and UK music is the most popular vs where countries may be listening to other kinds of music that may be offered through other streaming services.
+``` {r  echo = FALSE, results = 'asis',  warning=FALSE}
+spotify_dataset <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/spotify_dataset.csv")
+artists <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/top_artists.csv")
+songs_normalize <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-Chkjaer/main/data/songs_normalize.csv")
+ 
+summary_info <- list()
+summary_info$artist_country_freq <- names(which.max(table(artists$country)))
+summary_info$song_year_freq <- names(which.max(table(songs_normalize$year)))
+summary_info$genre_freq <- names(which.max(table(songs_normalize$genre)))
+summary_info$num_countries <- length(unique(artists$country))
+summary_info$max_followers <- names(which.max(table(spotify_dataset$Artist.Followers)))
+
+```
+
+After creating these charts, we can see the beginnings of answers to our research questions. Through examing our data sets closer we have found trends in where the most top artists originate from, the top genres, as well as trends of music through time. The majority of top artists are from the `r summary_info$artists_country_freq`. However, there are `r summary_info$num_countries` countries represented in our data set. The most popular genre within our data sets is `r summary_info$genre_freq` and the year with the most songs that became top songs was `r summary_info$song_year_freq`. We are starting to see the trend of how the advancement of Spotify and the internet in recent years has impacted listening patterns. One way we are tracking the popularity of artists is through their Spotify follower counts. The artist with the most followers is Taylor Swift with `r summary_info$max_followers` followers. All of these values are from the most recent year we have in our data sets, 2021. 
 
 ## Table
 
-```{r echo = FALSE, results = 'asis',  warning=FALSE, message = FALSE}
+```{r  echo = FALSE, results = 'asis',  warning=FALSE, message=FALSE}
 library("dplyr")
 library("ggplot2")
 library("plotly")
@@ -68,31 +82,7 @@ This table shows aggregate data from all three of our charts. The table is group
 
 ## Chart 1
 
-```{r echo = FALSE, results = 'asis',  warning=FALSE, message = FALSE}
-library("ggplot2")
-library("dplyr")
-
-spotify <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/spotify_dataset.csv")
-
-stream <- spotify%>%
-  arrange(desc(Streams))%>%
-  head(10)
-
-stream %>%
-  ggplot(aes(x = Streams,
-            y = reorder(Genre, Streams))) +
- geom_col(width= .3, color = "black") +
-  labs(title = "Most Streamed Genres",
-      x = "Streams",
-      y = "Genre")
-
-```
-
-This chart shows the most popular genres on spotify. The top is pop while the bottom is jazz. It also shows the number of streams for each genre on the y axis.
-
-## Chart 2
-
-```{r echo = TRUE, results = 'asis',  warning=FALSE, message = FALSE}
+```{r  echo = FALSE, results = 'asis',  warning=FALSE, message=FALSE}
 library("tidyverse")
 library("stringr")
 library("ggplot2")
@@ -112,9 +102,9 @@ create_df <- function(the_genre) {
 create_plot_for_genre <- function(new_data) {
   ggplot(new_data, aes(x = year, y = total_popularity_of_genre)) + 
     geom_point() +
-    labs(title = "Popularity of Genre from 2000 - 2019",
+    labs(title = "Popularity of Rock from 2000 - 2019",
          x = "Year",
-         y = "Total Popularity of Genre")
+         y = "Total Popularity of Rock")
 }
 
 rock_df <- create_df("rock")
@@ -129,9 +119,9 @@ for (genres in all_genres) {
 
 This is an example of how the popularity of rock has decreased over time. You can use the code above to filter select genres such as rock, pop, R&B, etc. to see the popularity over time. Each dot on the chart represents how popular the genre was on the scale used in our data set.
 
-## Chart 3
+## Chart 2
 
-```{r  echo = FALSE, results = 'asis',  warning=FALSE}
+```{r  echo = FALSE, results = 'asis',  warning=FALSE, message=FALSE}
 library("tidyverse")
 library("ggplot2")
 
