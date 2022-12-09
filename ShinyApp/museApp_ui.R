@@ -1,8 +1,8 @@
 library(shiny)
 
 uiP1 <- tabPanel("Introduction",
-  titlePanel("Music Behavior Around the World"),
-  mainPanel(img(src="spotify_image.jpeg", align = "right")),
+  titlePanel("Examing Spotify Listening Around the World and over Time"),
+  hr(),
   mainPanel(
     p("Music is a universally enjoyed art that succeeds at bringing people together,
     creating shared experiences, and representing culture. Being that Spotify is 
@@ -34,25 +34,23 @@ uiP1 <- tabPanel("Introduction",
   mainPanel(
     p("Enjoy our interactive visualizations!")
   ),
+  mainPanel(img(src = "https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/ShinyApp/spotify_image.jpeg", align = "right")),
 )
 
-uiP2 <- tabPanel("Chart 2", 
+uiP2 <- tabPanel("Genres over Time", 
                  sidebarLayout(
                    sidebarPanel(
-                     selectInput("genre_selection", label="genre", choice = all_genres)),
+                     selectInput("genre_selection", label="Genre", choice = all_genres),
+                   ),
                    mainPanel(
                      plotOutput("chart2")
                    )
                   )
                  )
 
-
-uiP3 <- tabPanel("Chart 3",
+uiP3 <- tabPanel("Top Artists around the World",
                  sidebarLayout(
                    sidebarPanel(
-                     #checkboxGroupInput("ratingType", label = h3("Show:"), 
-                     #                   choices = list("Listens" = 1, "Scrobbles" = 2),
-                     #                   selected = 1),
                      numericInput("topNum", 
                                   label = h3("How many artists do you want to see?"), 
                                   value = 1, 
@@ -70,6 +68,7 @@ uiP3 <- tabPanel("Chart 3",
 
 
 uiP4 <- tabPanel("Summary Takeaways",
+<<<<<<< HEAD
   titlePanel("Some things to take away"),
   mainPanel("Through geographical exploration, the U.K. and the U.S. are clearly the home of the most popular artists on spotify. The top 14 artists on spotify, including big nmes like Radiohead, Coldplay, Nirvana, all call either the U.S. or U.K. home"),
 ), 
@@ -77,10 +76,31 @@ uiP4 <- tabPanel("Summary Takeaways",
             and Dance/Electric music have grown since becoming popular in the early 2000s. Like these genre's, many other genre's reached their peak in the 2000s and 2010s, while in recent years, there is not one genre that is dominating. This could be due
             to the growth in availability to listen to music through streaming services like Spotify. There have also been some genre's that have made popularity comebacks in recent years after being popular in the early 2000s, which reflects the trends in
             other arts such as fashion.")
+=======
+  titlePanel("Some Things to Take Away..."),
+  hr(),
+  mainPanel(h4("Top Artists"),
+            p("Through geographical exploration, it's apparent the U.K. and the U.S. are 
+            the home of the most popular artists on spotify. The top 14 artists on
+            Spotify, including big nmes like Radiohead, Coldplay, Nirvana, all call
+            either the U.S. or U.K. home. It's clear the grip American 
+            and British music has over the industry is real. It's sad to see that even examining
+            the top 100 artists, the countries of origin barely leave these two dominating 
+            areas, and when they do, the artists are often from an area of close proximity.")),
+  
+  mainPanel(h4("Popular Genres"),
+            p("Through comparing the growth charts of each genre, it is clear that many genres reached their peaks in the 2000s, which strongly correlates to the culture at the time. R&B and rock reached their peak during the early to late 2000s and Hip Hop 
+            and Dance/Electronic music have grown since becoming popular in the early 2000s. Like these genres, many other genres reached their peak in the 2000s and 2010s, while in recent years, there is not one genre that is dominating. This could be due
+            to the growth in availability to listen to music through streaming services like Spotify. There have also been some genres that have made popularity comebacks in recent years after being popular in the early 2000s, which reflects the trends in
+            other arts such as fashion.")),
+  
+)   
+>>>>>>> c2727619965340530afb3016b3171e61d5ae7881
 
 uiP5 <- tabPanel("Report",
         titlePanel("Report"),
-        mainPanel(em("Findings:")),
+        hr(),
+        mainPanel(h4("Findings")),
         mainPanel("Answers to research questions:"),
         mainPanel("1. How have the most popular genre's changed over time?"),
         mainPanel("There were a couple of trends observed for each genre over the past two decades. Some notable
@@ -103,7 +123,7 @@ uiP5 <- tabPanel("Report",
                   top artists are from English speaking bands, even if they originate from non-English speaking
                   countries. The majority of top artists are also in the form of majoity male rock bands. This shows 
                   the shared enjoyment of that kind of music."),
-        mainPanel(em("Discussion")),
+        mainPanel(h4("Discussion")),
         mainPanel("Music is a large part of culture throughout the world, it represents
                   values, emotions, and can make political and societal statements. Music
                   has changed a lot over time, but the values of music hold true. It can bring
@@ -130,7 +150,7 @@ uiP5 <- tabPanel("Report",
                   it is not an exact representation of the entire world’s listening. Therefore, data from Spotify will 
                   not be 100% representative of the population’s listening behaviors, especially when it comes to countries 
                   outside of the U.S."),
-        mainPanel(em("Conclusion")),
+        mainPanel(h4("Conclusion")),
         mainPanel("Our desired expected implications, as stated in P01, was that the modern 
                   American pop music industry tends to shove certain artists into the spotlight and suppress many others. 
                   This power leaks to the rest of the world; cultures all around the globe have been found to listen to 
@@ -148,12 +168,10 @@ uiP5 <- tabPanel("Report",
                   Our action point for our audience is to dive into music from different cultures, spread your horizons
                   out of your comfort zone, and connect with people through music."),
 )
-
-muse_ui <- navbarPage("Project Muse",
+muse_ui <- navbarPage("Project Muse", 
   uiP1,
   uiP2,
   uiP3,
   uiP4,
   uiP5
 )
-

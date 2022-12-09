@@ -3,33 +3,30 @@ library("stringr")
 library("dplyr")
 library("ggplot2")
 library("plotly")
+library("maps")
+library("mapproj")
 
 
 # Intro
 spotify_dataset <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/spotify_dataset.csv")
-artists <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/top_artists.csv")
-songs_normalize <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-Chkjaer/main/data/songs_normalize.csv")
+artists <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/72f75295578fb13cc7ea28a48cbcd254daa4c095/data/top_artists.csv")
+top_spotify_hits2000_2019 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/songs_normalize.csv")
+
 
 num_countries <- length(unique(artists$country))
-#94
 
 artist_country_freq <- names(which.max(table(artists$country)))
-# United states
 
 song_year_freq <- names(which.max(table(top_spotify_hits2000_2019$year)))
-# 2012
 
 genre_freq <- names(which.max(table(top_spotify_hits2000_2019$genre)))
-# pop
 
 artist_freq <- names(which.max(table(spotify_dataset$Artist)))
-# Taylor Swift
 
 max_followers <- names(which.max(table(spotify_dataset$Artist.Followers)))
-# 42227614 Taylor Swift
+
 
 #Chart 2
-top_spotify_hits2000_2019 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-paigestanley1/main/data/songs_normalize.csv")
 top_spotify_hits2000_2019 <- top_spotify_hits2000_2019 %>% filter(genre != "set()")
 all_genres <- as.list(unique(unlist(strsplit(as.character(top_spotify_hits2000_2019$genre), ", "))))
 
@@ -38,10 +35,6 @@ all_genres <- as.list(unique(unlist(strsplit(as.character(top_spotify_hits2000_2
 artists <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/top_artists.csv", stringsAsFactors = FALSE)
 capitals <- read.csv("https://media.githubusercontent.com/media/info201b-au2022/project-Chkjaer/main/data/concap.csv")
 
-#top_artists <- artists %>% 
-#  arrange(-listeners_lastfm) %>%
-#  rename(country = country)
-  
 capitals <- rename(capitals, country = CountryName)
 
 top_artists <- artists %>%
@@ -53,7 +46,6 @@ country_shape <- map_data("world")
 muse_server <- function(input, output) {
 
 #Chart 2
-  
   output$chart2 <- renderPlot({
     wrangle_genre_data <- function(inputGenre) {
       data <- top_spotify_hits2000_2019 %>%
@@ -64,16 +56,15 @@ muse_server <- function(input, output) {
     create_plot_for_genre <- function(inputGenre) {
       data <- wrangle_genre_data(inputGenre)
       ggplot(data, aes(x = year, y = total_popularity_of_genre)) + 
-        geom_line() +
-        labs(title = "Popularity of Genre from 2000 - 2019",
-             x = "Year",
-             y = "Total Popularity of Genre")
+         geom_line(color = 'green') +
+         labs(title = "Popularity of Genre from 2000 - 2019",
+                  x = "Year",
+                  y = "Total Popularity of Genre")
     }
     create_plot_for_genre(input$genre_selection)
   })
 
 #Chart 3
-  
   output$chart3 <- renderPlot({
     if(input$country != "World-wide") {
     top_artists <- top_artists %>% 
@@ -123,6 +114,5 @@ muse_server <- function(input, output) {
       )
     top_artists
   })
-  
 }
 
