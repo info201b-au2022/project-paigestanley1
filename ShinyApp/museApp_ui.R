@@ -72,7 +72,11 @@ uiP3 <- tabPanel("Chart 3",
 uiP4 <- tabPanel("Summary Takeaways",
   titlePanel("Some things to take away"),
   mainPanel("Through geographical exploration, the U.K. and the U.S. are clearly the home of the most popular artists on spotify. The top 14 artists on spotify, including big nmes like Radiohead, Coldplay, Nirvana, all call either the U.S. or U.K. home"),
-)   
+), 
+  mainPanel("Through comparing the growth charts of each genre, it is clear that many genres reached their peaks in the 2000s, which strongly correlates to the culture at the time. R&B and rock reached their peak during the early to late 2000s and Hip Hop 
+            and Dance/Electric music have grown since becoming popular in the early 2000s. Like these genre's, many other genre's reached their peak in the 2000s and 2010s, while in recent years, there is not one genre that is dominating. This could be due
+            to the growth in availability to listen to music through streaming services like Spotify. There have also been some genre's that have made popularity comebacks in recent years after being popular in the early 2000s, which reflects the trends in
+            other arts such as fashion.")
 
 uiP5 <- tabPanel("Report",
         titlePanel("Report"),
